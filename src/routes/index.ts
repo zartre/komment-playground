@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import bookHandler from './book';
 import pingHandler from './ping';
 
 export const registerRoutes = (app: Hono<{ Bindings: Env }>) => {
@@ -6,6 +7,10 @@ export const registerRoutes = (app: Hono<{ Bindings: Env }>) => {
 		{
 			path: '/ping',
 			handler: pingHandler,
+		},
+		{
+			path: '/books',
+			handler: bookHandler,
 		},
 	];
 
