@@ -2,14 +2,19 @@ import { Hono } from 'hono';
 import bookHandler from './book';
 import pingHandler from './ping';
 
-const routes = [
-	{
-		path: '/ping',
-		handler: pingHandler,
-	},
+interface Route {
+	path: string;
+	handler: Hono;
+}
+
+const routes: Route[] = [
 	{
 		path: '/books',
 		handler: bookHandler,
+	},
+	{
+		path: '/ping',
+		handler: pingHandler,
 	},
 ];
 
