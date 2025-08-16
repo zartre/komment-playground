@@ -9,10 +9,17 @@
  * `Env` object can be regenerated with `npm run cf-typegen`.
  *
  * Learn more at https://developers.cloudflare.com/workers/
+ *
+ * https://dev.to/lovestaco/how-to-integrate-github-sign-in-a-four-step-guide-1doj
+ *
+ * https://developers.cloudflare.com/d1/tutorials/build-a-comments-api/
  */
 
-export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
-	},
-} satisfies ExportedHandler<Env>;
+import { Hono } from 'hono';
+import { registerRoutes } from './routes';
+
+const app = new Hono<{ Bindings: Env }>();
+
+registerRoutes(app);
+
+export default app;
