@@ -2,10 +2,10 @@ import { Hono } from 'hono';
 import { PingService } from '../services/ping';
 
 const app = new Hono();
-const controller = new PingService();
+const service = new PingService();
 
 app.get('/', async (c) => {
-	let result = controller.ping();
+	let result = service.ping();
 	return c.text(result);
 });
 
