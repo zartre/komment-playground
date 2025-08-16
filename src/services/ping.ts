@@ -1,4 +1,4 @@
-export class PingService {
+export default class PingService {
 	ping(): string {
 		return 'pong';
 	}

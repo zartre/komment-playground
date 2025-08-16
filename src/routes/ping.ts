@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
-import { PingService } from '../services/ping';
+import pingService from '../services/ping';
 
 const app = new Hono();
-const service = new PingService();
+const service = new pingService();
 
 app.get('/', async (c) => {
 	let result = service.ping();
