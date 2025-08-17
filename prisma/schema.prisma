@@ -1,17 +1,18 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  provider        = "prisma-client-js"
+  output          = "../generated/prisma"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model Post {
   id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.Timestamp(6)
+  title     String
+  createdAt DateTime @default(now())
   content   String?
   published Boolean  @default(false)
   authorId  Int
@@ -27,8 +28,8 @@ model Profile {
 
 model User {
   id      Int      @id @default(autoincrement())
-  name    String?  @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
+  name    String?
+  email   String   @unique
   posts   Post[]
   profile Profile?
 }
