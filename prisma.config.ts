@@ -5,6 +5,7 @@
 
 import type { PrismaConfig } from 'prisma';
 import { PrismaD1 } from '@prisma/adapter-d1';
+import 'dotenv/config';
 
 export default {
 	experimental: {
