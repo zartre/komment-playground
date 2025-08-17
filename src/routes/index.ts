@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import bookHandler from './book';
 import pingHandler from './ping';
+import userHandler from './user';
 
 interface Route {
 	path: string;
@@ -15,6 +16,10 @@ const routes: Route[] = [
 	{
 		path: '/ping',
 		handler: pingHandler,
+	},
+	{
+		path: '/users',
+		handler: userHandler,
 	},
 ];
 
