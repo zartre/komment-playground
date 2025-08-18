@@ -25,7 +25,7 @@
 		{
 			"binding": "DB",
 			"database_name": "komment-playground",
-			"database_id": "461b5d02-3e9e-4cc0-a52d-d5323a83529f",
+			"database_id": "f6be1137-a223-4006-b1cf-2e2bd9c0ab63",
 			"migrations_dir": "./prisma/migrations"
 		}
 	]
