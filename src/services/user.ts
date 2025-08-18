@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '../../generated/prisma';
 
 export default class UserService {
 	private prisma: PrismaClient;
@@ -7,7 +7,7 @@ export default class UserService {
 		this.prisma = prisma;
 	}
 
-	async create(name: string, email: string, bio: string) {
+	async create(name: string, email: string, bio: string): Promise<User> {
 		const user = await this.prisma.user.create({
 			data: {
 				name,
