@@ -16,6 +16,8 @@ model Post {
   published Boolean  @default(false)
   authorId  Int
   author    User     @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("posts")
 }
 
 model Profile {
@@ -23,6 +25,8 @@ model Profile {
   bio    String?
   userId Int     @unique
   user   User    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("profiles")
 }
 
 model User {
@@ -31,4 +35,22 @@ model User {
   email   String   @unique
   posts   Post[]
   profile Profile?
+
+  @@map("users")
+}
+
+model Website {
+  id          Int    @id @default(autoincrement())
+  contentRoot String @unique
+
+  @@map("websites")
+}
+
+model Student {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  enrolledAt DateTime @default(now())
+
+  @@map("students")
 }
